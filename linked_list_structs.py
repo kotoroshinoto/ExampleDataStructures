@@ -44,7 +44,32 @@ class LinkedStack:
         return self._num_items
 
 
-class LinkedQueue:
+class SingleLinkedQueue:
+    def __init__(self):
+        self._head = None  # type: SingleLinkNode
+        self._tail = None  # type: SingleLinkNode
+
+    def enqueue(self, data: 'any'):
+        node = SingleLinkNode(data)
+        if not self._tail:
+            self._head = node
+            self._tail = node
+        else:
+            self._tail.next = node
+            self._tail = node
+
+    def dequeue(self) -> 'any':
+        if not self._head:
+            return None
+        else:
+            node = self._head
+            self._head = self._head.next
+            if not self._head:
+                self._tail = None
+            return node
+
+
+class DoubleLinkedQueue:
     def __init__(self):
         self._head = None  # type: DoubleLinkNode
         self._tail = None  # type: DoubleLinkNode
@@ -95,7 +120,7 @@ class LinkedQueue:
             return None
 
 
-class LinkedDoubleEndedQueue(LinkedQueue):
+class DoubleLinkedDoubleEndedQueue(DoubleLinkedQueue):
     def rev_enqueue(self, data: 'any'):
         node = DoubleLinkNode(data)
         if self._tail:
