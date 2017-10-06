@@ -4,7 +4,7 @@ class SingleLinkNode:
         self.next = None  # type: SingleLinkNode
 
 
-class DoubleLinkNode():
+class DoubleLinkNode:
     def __init__(self, data: 'any'):
         self.data = data  # type: any
         self.next = None  # type: DoubleLinkNode
