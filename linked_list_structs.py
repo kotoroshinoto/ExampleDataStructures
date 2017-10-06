@@ -48,6 +48,7 @@ class SingleLinkedQueue:
     def __init__(self):
         self._head = None  # type: SingleLinkNode
         self._tail = None  # type: SingleLinkNode
+        self._num_items = 0
 
     def enqueue(self, data: 'any'):
         node = SingleLinkNode(data)
@@ -57,6 +58,7 @@ class SingleLinkedQueue:
         else:
             self._tail.next = node
             self._tail = node
+            self._num_items += 1
 
     def dequeue(self) -> 'any':
         if not self._head:
@@ -66,7 +68,11 @@ class SingleLinkedQueue:
             self._head = self._head.next
             if not self._head:
                 self._tail = None
+            self._num_items -= 1
             return node.data
+
+    def __len__(self):
+        return self._num_items
 
 
 class DoubleLinkedQueue:
