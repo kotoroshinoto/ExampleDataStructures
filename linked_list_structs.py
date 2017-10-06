@@ -14,20 +14,20 @@ class DoubleLinkNode:
 class LinkedStack:
     def __init__(self):
         self._head = None  # type: SingleLinkNode
-        self.num_items = 0
+        self._num_items = 0
 
     def push(self, data: 'any'):
         node = SingleLinkNode(data)
         if self._head:
             node.next = self._head
         self._head = node
-        self.num_items += 1
+        self._num_items += 1
 
     def pop(self) -> 'any':
         if self._head:
             node = self._head
             self._head = self._head.next
-            self.num_items -= 1
+            self._num_items -= 1
             return node.data
         else:
             return None
@@ -41,17 +41,17 @@ class LinkedStack:
         return "->".join(s)
 
     def __len__(self):
-        return self.num_items
+        return self._num_items
 
 
 class LinkedQueue:
     def __init__(self):
         self._head = None  # type: DoubleLinkNode
         self._tail = None  # type: DoubleLinkNode
-        self.num_items = 0
+        self._num_items = 0
 
     def __len__(self):
-        return self.num_items
+        return self._num_items
 
     def __str__(self):
         fs = []
@@ -79,7 +79,7 @@ class LinkedQueue:
         else:
             self._head = node
             self._tail = node
-        self.num_items += 1
+        self._num_items += 1
 
     def dequeue(self) -> 'any':
         if self._tail:
@@ -89,7 +89,7 @@ class LinkedQueue:
                 self._tail.next = None
             else:
                 self._head = None
-            self.num_items -= 1
+            self._num_items -= 1
             return node.data
         else:
             return None
@@ -105,7 +105,7 @@ class LinkedDoubleEndedQueue(LinkedQueue):
         else:
             self._tail = node
             self._head = node
-        self.num_items += 1
+        self._num_items += 1
 
     def rev_dequeue(self) -> 'any':
         if self._head:
@@ -115,7 +115,7 @@ class LinkedDoubleEndedQueue(LinkedQueue):
                 self._head.prev = None
             else:
                 self._tail = None
-            self.num_items -= 1
+            self._num_items -= 1
             return node.data
         else:
             return None
