@@ -20,7 +20,9 @@ class DEQueue:
         node = self.list.pop_back()
         if node:
             self._num_items -= 1
-        return node.get_data()
+            return node.get_data()
+        else:
+            return None
         
     def rev_enqueue(self, data: 'any'):
         self.list.push_back(data)
@@ -30,4 +32,6 @@ class DEQueue:
         node = self.list.pop_front()
         if node:
             self._num_items -= 1
-        return node.get_data()
+            return node.get_data()
+        else:
+            return None

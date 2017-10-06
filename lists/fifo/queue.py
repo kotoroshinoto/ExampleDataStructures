@@ -14,7 +14,9 @@ class Queue:
         node = self.list.pop()
         if node:
             self._num_items -= 1
-        return node.get_data()
+            return node.get_data()
+        else:
+            return None
 
     def __len__(self) -> int:
         return self._num_items
