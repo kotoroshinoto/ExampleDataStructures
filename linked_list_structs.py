@@ -66,7 +66,7 @@ class SingleLinkedQueue:
             self._head = self._head.next
             if not self._head:
                 self._tail = None
-            return node
+            return node.data
 
 
 class DoubleLinkedQueue:
