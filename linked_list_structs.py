@@ -58,7 +58,7 @@ class SingleLinkedQueue:
         else:
             self._tail.next = node
             self._tail = node
-            self._num_items += 1
+        self._num_items += 1
 
     def dequeue(self) -> 'any':
         if not self._head:
